@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#008CFF">
+    <link rel="manifest" href="pwa/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="task-icon-57.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="task-icon-144.png" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>To Do PWA</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Please Enable JavaScript</noscript>
+    <script>
+      // if(!location.protocol.includes('https')){
+      //   console.log('no es seguro')
+      //   location.href = `https://${location.host}/`
+      // }
+      // else{
+      //   console.log('es seguro')
+      // }
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./sw.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+        else{
+            alert('cannot use this app offline')
+        }
+    </script>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
+
