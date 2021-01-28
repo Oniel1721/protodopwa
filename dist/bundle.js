@@ -1,5 +1,4 @@
 /*! For license information please see bundle.js.LICENSE.txt */
-"3000"
 (() => {
 	var e = {
 			3099: e => {
