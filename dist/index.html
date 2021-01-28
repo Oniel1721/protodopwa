@@ -14,13 +14,13 @@
     <div id="root"></div>
     <noscript>Please Enable JavaScript</noscript>
     <script>
-      // if(!location.protocol.includes('https')){
-      //   console.log('no es seguro')
-      //   location.href = `https://${location.host}/`
-      // }
-      // else{
-      //   console.log('es seguro')
-      // }
+      if(!location.protocol.includes('https')){
+        console.log('no es seguro')
+        location.href = `https://${location.host}/`
+      }
+      else{
+        console.log('es seguro')
+      }
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('./sw.js').then(function(registration) {
